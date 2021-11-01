@@ -25,7 +25,10 @@ class MainController extends Controller
 
     public function getProfile()
     {
-        return view('profile');
+
+        return view('profile',[
+            'products'=>Auth::user()->products
+        ]);
     }
 
     public function getProduct()

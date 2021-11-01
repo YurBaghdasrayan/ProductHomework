@@ -15,6 +15,10 @@ class Product extends Model
         'product',
         'price',
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     protected $hidden = [
 

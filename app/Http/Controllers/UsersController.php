@@ -25,7 +25,7 @@ class UsersController extends Controller
     {
         $data = $request->validated();
 
-        dd($data);
+//        dd($data);
         $user = User::create($data);
 
         return redirect()->route('login');

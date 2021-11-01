@@ -26,6 +26,7 @@ Route::get('/login', [MainController::class, 'getLogin'])->name('login');
 
 Route::get('/signup', [MainController::class, 'getSignup']);
 
+
 // Only Users
 
 Route::group(['middleware' => ['loggedIn']], function () {
@@ -46,9 +47,12 @@ Route::post('/login', [UsersController::class, 'postLogin']);
 
 Route::post('/signup', [UsersController::class, 'postSignup']);
 
+Route::post('/logout',[UsersController::class, 'postlogout']);
+
 //ProductController POST methods
 
 Route::post('/product', [ProductController::class, 'postProduct']);
+
 
 
 

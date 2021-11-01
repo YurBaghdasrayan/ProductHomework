@@ -2,9 +2,10 @@
 
 
 @section('content')
+    @include('includes.messages')
 
     <div class="section">
-        <form action="" method="POST">
+        <form action="/signup" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="exampleInputName" class="form-label">Your Name</label>
@@ -18,6 +19,7 @@
                 <label for="exampleInputPassword1" class="form-label">Password</label>
                 <input type="password" class="form-control" id="exampleInputPassword1" name="password">
             </div>
+            <input type="file" name="img">
             <input type="submit" class="btn btn-primary" value="Submit">
         </form>
 

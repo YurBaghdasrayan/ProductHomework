@@ -24,11 +24,20 @@ class UsersController extends Controller
     public function postSignup(CreateUserRequest $request)
     {
         $data = $request->validated();
-
 //        dd($data);
         $user = User::create($data);
+        $imagePath = $data['img']->store('profile_img');
+
+        $user->img_path = $imagePath;
+        $user->save();
+
 
         return redirect()->route('login');
 
+    }
+    public function postlogout()
+    {
+        Auth::logout();
+        return redirect()->route('login');
     }
 }

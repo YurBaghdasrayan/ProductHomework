@@ -14,4 +14,9 @@
                 </ul>
             @endforeach
     </div>
+    <h1>efdsdf</h1>
+    <form action="/logout" method="post" enctype="multipart/form-data">
+        @csrf
+        <input type="submit" value="logout">
+    </form>
 @endsection

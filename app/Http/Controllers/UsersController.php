@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\UserCreatedEvent;
 use App\Http\Requests\CreateUserRequest;
 use App\Models\User;
 
@@ -36,6 +37,7 @@ class UsersController extends Controller
         $user->img_path = $imagePath;
         $user->save();
 
+        event(new UserCreatedEvent($user));
 
         return redirect()->route('login');
 

@@ -28,10 +28,9 @@ class ProductController extends Controller
     }
     public function postCars(CreateCarsRequest $request){
 
-        $data = $request->only('brand','color','price');
 
+        $data = $request->validated();
         $data['user_id'] = Auth::user()->id;
-
         $user = Cars::create($data);
 
         return redirect()->route('carslist');

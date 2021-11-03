@@ -60,10 +60,11 @@ class MainController extends Controller
     public function getProdlist()
     {
         $products = Product::where('user_id', Auth::user()->id)->get();
+//        dd($products);
 
         return view('product-list', [
             'products' => $products,
-            'cars'=>Cars::where('user_id',Auth::user()->cars)->get()
+            'cars'=>Cars::where('user_id',Auth::user()->id)->get()
         ]);
     }
 }

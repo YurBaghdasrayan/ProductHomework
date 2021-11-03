@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Cars;
 
 class MainController extends Controller
 {
@@ -33,7 +35,21 @@ class MainController extends Controller
 
     public function getProduct()
     {
-        return view('product');
+        $category = Category::get();
+        return view('product',[
+            'categories' => $category,
+        ]);
+    }
+
+    public function getCars()
+    {
+        return view('cars',);
+    }
+
+    public function getCarslist(){
+        return view('carslist', [
+            'cars'=>Cars::where('user_id',Auth::user()->cars)->get()
+        ]);
     }
 
     public function getUserlist()
@@ -46,7 +62,8 @@ class MainController extends Controller
         $products = Product::where('user_id', Auth::user()->id)->get();
 
         return view('product-list', [
-            'products' => $products
+            'products' => $products,
+            'cars'=>Cars::where('user_id',Auth::user()->cars)->get()
         ]);
     }
 }

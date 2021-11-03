@@ -13,7 +13,10 @@ class UsersController extends Controller
 {
     public function postlogin(Request $request)
     {
+
         $data = $request->only('email', 'password');
+
+//        dd($data);
         if (Auth::attempt($data)) {
             return redirect()->route('profile');
         } else {
@@ -24,8 +27,10 @@ class UsersController extends Controller
     public function postSignup(CreateUserRequest $request)
     {
         $data = $request->validated();
-//        dd($data);
+
         $user = User::create($data);
+
+
         $imagePath = $data['img']->store('profile_img');
 
         $user->img_path = $imagePath;

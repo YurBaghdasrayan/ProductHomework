@@ -3,27 +3,48 @@
 
 @section('content')
     @include('includes.messages')
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+            <div class="card" style="border-radius: 15px;">
+                <div class="card-body p-5">
+                    <h2 class="text-uppercase text-center mb-5">Create an account</h2>
 
-    <div class="section">
-        <form action="/signup" method="POST" enctype="multipart/form-data">
-            @csrf
-            <div class="mb-3">
-                <label for="exampleInputName" class="form-label">Your Name</label>
-                <input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp" name="name">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" name="password">
-            </div>
-            <input type="file" name="img">
-            <input type="submit" class="btn btn-primary" value="Submit">
-        </form>
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-outline mb-4">
+                            <input name="name" type="text" id="form3Example1cg" class="form-control form-control-lg"/>
+                            <label class="form-label" for="form3Example1cg">Your Name</label>
+                        </div>
 
+                        <div class="form-outline mb-4">
+                            <input name="email" type="email" id="form3Example3cg" class="form-control form-control-lg"/>
+                            <label class="form-label" for="form3Example3cg">Your Email</label>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input name="password" type="password" id="form3Example4cg"
+                                   class="form-control form-control-lg"/>
+                            <label class="form-label" for="form3Example4cg">Password</label>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input name="img" type="file" id="form3Example4cg" class="form-control form-control-lg"/>
+                            <label class="form-label" for="form3Example4cg">Download files</label>
+                        </div>
+
+                        <div class="d-flex justify-content-center">
+                            <input type="submit" value="Register"
+                                   class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">
+                        </div>
+
+                        <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="/login"
+                                                                                                class="fw-bold text-body"><u>Login
+                                    here</u></a></p>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
     </div>
-
-
 @endsection

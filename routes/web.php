@@ -35,9 +35,13 @@ Route::group(['middleware' => ['loggedIn']], function () {
 
     Route::get('/product', [MainController::class, 'getProduct']);
 
+    Route::get('/cars', [MainController::class, 'getCars'])->name('cars');
+
     Route::get('/users-list', [MainController::class, 'getUserlist']);
 
     Route::get('/product-list', [MainController::class, 'getProdlist'])->name('product-list');
+
+    Route::get('/carslist', [MainController::class, 'getCarslist'])->name('carslist');
 
 });
 
@@ -52,6 +56,8 @@ Route::post('/logout',[UsersController::class, 'postlogout']);
 //ProductController POST methods
 
 Route::post('/product', [ProductController::class, 'postProduct']);
+
+Route::post('/cars', [ProductController::class, 'postCars']);
 
 
 

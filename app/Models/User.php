@@ -50,5 +50,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Product::class);
     }
+    public function cars()
+    {
+        return $this->hasMany(Cars::class);
+    }
 
 }

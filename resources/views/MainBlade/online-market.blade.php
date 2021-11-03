@@ -16,12 +16,20 @@
         padding: 0;
         margin: 0;
     }
+    ul {
+        color: #b7dae8;
+    }
     a {
         text-decoration: none;
     }
+    .login{
+        width: 200px;
+        display: flex;
+        justify-content: space-between;
+    }
     header  {
 
-        background: grey;
+        background: linear-gradient(90deg, rgba(162,220,185,1) 0%, rgba(136,183,171,1) 47%, rgba(183,218,232,1) 100%);
     }
     .text {
         display: flex;
@@ -33,9 +41,28 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 800px;
+        height: 600px;
     }
+    .gradient-custom-3 {
+        /* fallback for old browsers */
+        background: #84fab0;
 
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
+
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
+    }
+    .gradient-custom-4 {
+        /* fallback for old browsers */
+        background: #84fab0;
+
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
+    }
 </style>
 <body>
     <main>
@@ -43,20 +70,26 @@
             <div class="text">
                 <nav>
                     <ul>
-                        <li><a style="color: black" href="/online-market.com">HOME</a></li>
-                        <li><a style="color: black" href="">PROFILE</a></li>
-                        <li><a style="color: black" href="">ABOUT US</a></li>
+                        <li><a style="color: #b7dae8" href="/online-market.com">HOME</a></li>
+                        <li><a style="color: #b7dae8" href="">PROFILE</a></li>
+                        <li><a style="color: #b7dae8" href="">ABOUT US</a></li>
                     </ul>
                 </nav>
-                <p class="h1"><span>ONLINE</span>-MARKET</p>
+                <p class="h1" style="color: #b7dae8"><span>ONLINE</span>-MARKET</p>
                 <div class="login">
-                    <a style="color: black" href="/login">LOG-IN</a>
-                    <a style="color: black" href="/signup">SIGN-UP</a>
+                    <a style="color: #b7dae8;" href="/login">LOG-IN</a>
+                    <a style="color: #b7dae8" href="/signup">SIGN-UP</a>
+                    @yield('logout', '')
+
                 </div>
             </div>
         </header>
-        <section>
+        <section class="vh-100 bg-image" style="background-image: url('https://mdbootstrap.com/img/Photos/new-templates/search-box/img4.jpg')";>
+            <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+                <div class="container h-100">
             @yield('content')
+                </div>
+            </div>
         </section>
     </main>
 </body>

@@ -30,8 +30,18 @@ class ProductController extends Controller
 
 
         $data = $request->validated();
+
+
+
         $data['user_id'] = Auth::user()->id;
-        $user = Cars::create($data);
+
+        $car = Cars::create($data);
+
+        $imagePath = $data['img']->store('car_img');
+
+        $car->img_path = $imagePath;
+
+        $car->save();
 
         return redirect()->route('carslist');
 

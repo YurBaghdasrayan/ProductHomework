@@ -23,10 +23,20 @@
                                    class="form-control form-control-lg"/>
                             <label class="form-label" for="form3Example4cg">Cars Price</label>
                         </div>
+                        <div class="form-outline mb-4">
+                            <input name="img" type="file" id="form3Example4cg" class="form-control form-control-lg"/>
+                            <label class="form-label" for="form3Example4cg">Download files</label>
+                        </div>
+                        <select name="cartypes_id" id="">
+                            @foreach($cartypes as $type)
+                                <option  value="{{$type->id}}">{{$type->type}}</option>
+                            @endforeach
+                        </select>
                         <div class="d-flex justify-content-center">
                             <input type="submit" value="Add"
                                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">
                         </div>
+
                     </form>
                 </div>
             </div>

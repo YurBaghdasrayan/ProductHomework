@@ -7,6 +7,8 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Cars;
+use App\Models\Cartypes;
+
 
 class MainController extends Controller
 {
@@ -43,12 +45,17 @@ class MainController extends Controller
 
     public function getCars()
     {
-        return view('cars',);
+        $cartypes = Cartypes::get();
+        return view('cars',[
+            'cartypes' => $cartypes,
+        ]);
     }
 
     public function getCarslist(){
-        return view('carslist', [
-            'cars'=>Cars::where('user_id',Auth::user()->cars)->get()
+        $cars = Cars::get();
+        
+        return view('carslist',[
+            'cars' => $cars,
         ]);
     }
 

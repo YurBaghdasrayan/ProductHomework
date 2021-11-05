@@ -13,6 +13,8 @@ class Cars extends Model
         'color',
         'price',
         'user_id',
+        'cartypes_id',
+        'img_path',
     ];
 
     protected $hidden = [

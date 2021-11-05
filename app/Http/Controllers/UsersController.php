@@ -31,15 +31,15 @@ class UsersController extends Controller
 
         $user = User::create($data);
 
-
         $imagePath = $data['img']->store('profile_img');
 
         $user->img_path = $imagePath;
+
         $user->save();
 
-        event(new UserCreatedEvent($user));
-
-        return redirect()->route('login');
+//        event(new UserCreatedEvent($user));
+//
+//        return redirect()->route('login');
 
     }
     public function postlogout()

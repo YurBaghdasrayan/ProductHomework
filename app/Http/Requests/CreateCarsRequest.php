@@ -24,6 +24,8 @@ class CreateCarsRequest extends FormRequest
     public function rules()
     {
         return [
+            'img'=> 'file|mimes:jpg,png|max:2040',
+            'cartypes_id' => 'required|min:1|max:100',
             'brand' => 'required|min:3|max:64',
             'color' => 'required|min:3|max:64',
             'price' => 'required|min:3|max:64',

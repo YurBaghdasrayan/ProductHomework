@@ -25,7 +25,7 @@ class UsersController extends Controller
         }
     }
 
-    public function postSignup(CreateUserRequest $request)
+    public function store(CreateUserRequest $request)
     {
         $data = $request->validated();
 
@@ -42,9 +42,23 @@ class UsersController extends Controller
 //        return redirect()->route('login');
 
     }
+
     public function postlogout()
     {
         Auth::logout();
         return redirect()->route('login');
     }
+
+    public function edit()
+    {
+        return view('users.edit', [
+            'user' => Auth::user()
+        ]);
+    }
+
+    public function update(Request $request)
+    {
+        dd($request->all());
+    }
 }
+

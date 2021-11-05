@@ -26,8 +26,8 @@ class UserCreatedListener implements ShouldQueue
      * @return void
      */
 
-//    php artisan queue:work
-//    php artisan queue:retry all
+    //    php artisan queue:work
+    //    php artisan queue:retry all
     public function handle(UserCreatedEvent $event)
     {
         \Log::info('USER_CREATED_LISTENER',[

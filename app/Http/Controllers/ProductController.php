@@ -5,12 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateCarsRequest;
 use App\Models\Category;
 use App\Models\Product;
-
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Auth;
-
 use App\Models\Cars;
+use App\Service\ProductService;
 
 class ProductController extends Controller
 {
@@ -26,11 +24,12 @@ class ProductController extends Controller
         return redirect()->route('product-list');
 
     }
-    public function postCars(CreateCarsRequest $request){
+
+    public function postCars(CreateCarsRequest $request)
+    {
 
 
         $data = $request->validated();
-
 
 
         $data['user_id'] = Auth::user()->id;
@@ -45,5 +44,12 @@ class ProductController extends Controller
 
         return redirect()->route('carslist');
 
+    }
+
+    public function getApiProducts()
+    {
+        return response()->json(
+            (new ProductService())->getUserProducts(Auth::user())
+        );
     }
 }

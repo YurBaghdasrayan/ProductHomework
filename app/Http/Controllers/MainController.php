@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Cars;
 use App\Models\Cartypes;
+use App\Service\ProductService;
 
 
 class MainController extends Controller
@@ -53,7 +54,7 @@ class MainController extends Controller
 
     public function getCarslist(){
         $cars = Cars::get();
-        
+
         return view('carslist',[
             'cars' => $cars,
         ]);
@@ -70,7 +71,7 @@ class MainController extends Controller
 //        dd($products);
 
         return view('product-list', [
-            'products' => $products,
+            'products' => (new ProductService())->getUserProducts(Auth::user()),
             'cars'=>Cars::where('user_id',Auth::user()->id)->get()
         ]);
     }
